@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './input.component.css'
 })
 export class InputComponent {
-  @Input() control!: FormControl  ;
-cardForm: any;
+  @Input() control!: FormControl;
 
 }
