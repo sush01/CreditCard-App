@@ -19,7 +19,7 @@
       </div>
       <div class="help is-danger" *ngIf="control.errors?.['maxlength']">
         Value you entered is 
-        {{control.value['maxlength']?.actualLength}}
+        {{control.value.length}}
         characters long, but it must be at least 
         {{control.errors?.['maxlength']?.requiredLength}}
         characters
