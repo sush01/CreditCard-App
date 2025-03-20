@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormGroup, FormControl, Validators, FormControlName} from '@angular/forms';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { InputComponent } from '../input/input.component';
@@ -18,7 +18,8 @@ export class CardFormComponent {
     cardNumber: new FormControl('', 
       [Validators.required, 
       Validators.minLength(16), 
-      Validators.maxLength(16)
+      Validators.maxLength(16),
+      Validators.pattern(/^\d+$/)
     ]),
     expiration: new FormControl('', [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/)]),
     securityCode: new FormControl('',[
@@ -35,6 +36,11 @@ export class CardFormComponent {
 
   onSubmit(){
     console.log('Form was submitted');
+  }
+
+  onResetClick(){
+    this.cardForm.reset();
+
   }
 
 }
