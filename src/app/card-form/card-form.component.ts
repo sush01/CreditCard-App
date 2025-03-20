@@ -19,11 +19,11 @@ export class CardFormComponent {
     name: new FormControl('', [Validators.required,Validators.minLength(3)]),
     cardNumber: new FormControl('', 
       [Validators.required, 
+      Validators.pattern(/^\d+$/),
       Validators.minLength(16), 
       Validators.maxLength(16),
-      Validators.pattern(/^\d+$/)
     ]),
-    expiration: new FormControl('', [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/)]),
+    expiration: new DateFormControl('', [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/)]),
     securityCode: new FormControl('',[
       Validators.required,
       Validators.minLength(3),
@@ -44,5 +44,21 @@ export class CardFormComponent {
     this.cardForm.reset();
 
   }
+  onCardNumberInput(event: any) {
+    let cardNumber = event.target.value;
+  
+    // Allow only digits
+    cardNumber = cardNumber.replace(/\D/g, '');
+  
+    // Limit the length to 16 digits
+    if (cardNumber.length > 16) {
+      cardNumber = cardNumber.substring(0, 16);
+    }
+  
+    // Update the form control with the valid card number
+    this.cardForm.controls.cardNumber.setValue(cardNumber);
+  }
+
+  
 
 }

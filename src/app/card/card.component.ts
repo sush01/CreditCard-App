@@ -9,10 +9,9 @@ import { CommonModule} from '@angular/common';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-  @Input()
-  cardNumber!: string;
-  @Input()name!: string;
-  @Input() expiration!: string;
+  @Input() cardNumber: string | null = null;
+  @Input() name: string | null = null;
+  @Input() expiration: string | null = null;
 
 
 }
