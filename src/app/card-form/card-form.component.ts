@@ -3,9 +3,11 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { InputComponent } from '../input/input.component';
+import { CardComponent } from '../card/card.component';
+import { DateFormControl } from '../date-form-control';
 @Component({
   selector: 'app-card-form',
-  imports: [ReactiveFormsModule, CommonModule, InputComponent],
+  imports: [ReactiveFormsModule, CommonModule, InputComponent, CardComponent],
   templateUrl: './card-form.component.html',
   styleUrl: './card-form.component.css',
   
